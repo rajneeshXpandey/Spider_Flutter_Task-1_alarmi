@@ -1,0 +1,39 @@
+name: alarmi
+description: A new  Alarm -Flutter application.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  android_alarm_manager: ^0.4.5+11
+  flutter_ringtone_player: ^2.0.0
+  cupertino_icons: ^0.1.3
+  google_fonts: ^1.1.0
+
+  stop_watch_timer: ^0.6.0+1
+  analog_clock: ^0.0.4
+
+  intl: ^0.16.1
+
+  flutter_local_notifications: ^1.4.4+4
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+
+  uses-material-design: true
+
+assets:
+ -google_fonts/
