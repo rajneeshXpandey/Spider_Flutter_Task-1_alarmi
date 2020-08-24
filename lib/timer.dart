@@ -46,96 +46,95 @@ class _TimerState extends State<MyTimer> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Expanded(
-                  flex: 2,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      LabelText(
-                          label: 'HRS',
-                          value: hours.toString().padLeft(2, '0')),
-                      LabelText(
-                          label: 'MIN',
-                          value: minutes.toString().padLeft(2, '0')),
-                      LabelText(
-                          label: 'SEC',
-                          value: seconds.toString().padLeft(2, '0')),
-                    ],
-                  ),
+                SizedBox(height: 100),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    LabelText(
+                        label: 'HRS',
+                        value: hours.toString().padLeft(2, '0')),
+                    LabelText(
+                        label: 'MIN',
+                        value: minutes.toString().padLeft(2, '0')),
+                    LabelText(
+                        label: 'SEC',
+                        value: seconds.toString().padLeft(2, '0')),
+                  ],
                 ),
-               SizedBox(height: 50),
-                Expanded(
-                  flex:1,
-                  child: Container(
-                    decoration: BoxDecoration(
+               SizedBox(height: 100),
+                Container(
+                  height: 100,
+                  decoration: BoxDecoration(
           color: Colors.cyan,
            shape: BoxShape.rectangle,
            borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40.0),
-            topRight: Radius.circular(40.0))),
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+             bottomLeft: Radius.circular(30.0),
+               bottomRight: Radius.circular(30.0)
+           )),
 
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: RaisedButton(
-                            padding: EdgeInsets.all(10),
-                            color: Colors.greenAccent,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Text('Play',
-                              style: TextStyle(fontSize: 25,color: Colors.purple),
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: RaisedButton(
+                          padding: EdgeInsets.all(10),
+                          color: Colors.greenAccent,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Text('Play',
+                            style: TextStyle(fontSize: 25,color: Colors.purple),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              if(!isActive)
+                              isActive = !isActive;
+                            });
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: RaisedButton(
+                          padding: EdgeInsets.all(10),
+                          color:Colors.amberAccent,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Text('Pause' ,
+                            style: TextStyle(fontSize: 25,color:Colors.purple
                             ),
-                            onPressed: () {
-                              setState(() {
-                                if(!isActive)
-                                isActive = !isActive;
-                              });
-                            },
                           ),
+                          onPressed: () {
+                            setState(() {
+                              if(isActive)
+                              isActive = !isActive;
+                            });
+                          },
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: RaisedButton(
-                            padding: EdgeInsets.all(10),
-                            color:Colors.amberAccent,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Text('Pause' ,
-                              style: TextStyle(fontSize: 25,color:Colors.purple
-                              ),
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                if(isActive)
-                                isActive = !isActive;
-                              });
-                            },
-                          ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: RaisedButton(
+                          padding: EdgeInsets.all(10),
+                          color: Colors.redAccent,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Text('Reset',
+                              style: TextStyle(fontSize: 25,color: Colors.white),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: RaisedButton(
-                            padding: EdgeInsets.all(10),
-                            color: Colors.redAccent,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Text('Reset',
-                                style: TextStyle(fontSize: 25,color: Colors.white),
-                          ),
-                            onPressed: () {
-                              setState(() {
-                                secondsPassed=0;
-                                if(isActive)
-                               isActive = !isActive;
-                              });
-                            },
-                          ),
+                          onPressed: () {
+                            setState(() {
+                              secondsPassed=0;
+                              if(isActive)
+                             isActive = !isActive;
+                            });
+                          },
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 )
               ],
@@ -168,6 +167,7 @@ class LabelText extends StatelessWidget {
                 fontWeight: FontWeight.w400),
 
           ),
+
           Text(
             '$label',
             style: TextStyle(
