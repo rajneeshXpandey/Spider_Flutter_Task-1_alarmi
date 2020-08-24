@@ -93,53 +93,50 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
              color:   Color(0xff2D2F41) ,
           padding: EdgeInsets.only(top: 20),
-          child: Expanded(
+          child: Card(
 
-            child: Card(
-
-              color: Color(0xff2499B8),
-              shadowColor:Colors.cyanAccent,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              child: ListTile(
-                leading: Icon(Icons.timer,color: Colors.white,),
-                title: GestureDetector(
-                  child: Text(
-                    "${_time.hour}:${_time.minute}",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold
-                    ),
-                  ),
-                  onTap: () {
-                    selectTime(context);
-                  },
-                ),
-                subtitle: Text(
-                  "Cycle: Every Day",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                          color: Colors.white
-                  ),
-                ),
-                trailing: Switch(
-                  value: switch_value,
-                  onChanged: (bool state) {
-                    setState(() {
-                      this.switch_value = state;
-                      print(switch_value);
-                      if(switch_value)
-                        FlutterRingtonePlayer.playRingtone();
-                      else
-                        FlutterRingtonePlayer.stop();
-                    });
-                  },
-                ),
-              ),
-              elevation: 100,
+            color: Color(0xff2499B8),
+            shadowColor:Colors.cyanAccent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
             ),
+            child: ListTile(
+              leading: Icon(Icons.timer,color: Colors.white,),
+              title: GestureDetector(
+                child: Text(
+                  "${_time.hour}:${_time.minute}",
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+                onTap: () {
+                  selectTime(context);
+                },
+              ),
+              subtitle: Text(
+                "Cycle: Every Day",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                        color: Colors.white
+                ),
+              ),
+              trailing: Switch(
+                value: switch_value,
+                onChanged: (bool state) {
+                  setState(() {
+                    this.switch_value = state;
+                    print(switch_value);
+                    if(switch_value)
+                      FlutterRingtonePlayer.playRingtone();
+                    else
+                      FlutterRingtonePlayer.stop();
+                  });
+                },
+              ),
+            ),
+            elevation: 100,
           )
       ),
 

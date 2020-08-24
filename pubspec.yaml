@@ -35,5 +35,10 @@ flutter:
 
   uses-material-design: true
 
-assets:
- -google_fonts/
+  fonts:
+    - family: LobsterTwo
+      fonts:
+        - asset: google_fonts/LobsterTwo-Regular.ttf
+    - family: SpecialElite
+      fonts:
+        - asset: google_fonts/SpecialElite-Regular.ttf

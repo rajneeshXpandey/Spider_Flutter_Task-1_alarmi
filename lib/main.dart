@@ -1,33 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:ui';
 
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-FlutterLocalNotificationsPlugin();
+import 'package:android_alarm_manager/android_alarm_manager.dart';
+
 
 
 void main() async{
-  WidgetsFlutterBinding.ensureInitialized();
 
-  var initializationSettingsAndroid =
-  AndroidInitializationSettings('ic_launcher');
-  var initializationSettingsIOS = IOSInitializationSettings(
-      requestAlertPermission: true,
-      requestBadgePermission: true,
-      requestSoundPermission: true,
-      onDidReceiveLocalNotification:
-          (int id, String title, String body, String payload) async {});
-  var initializationSettings = InitializationSettings(
-      initializationSettingsAndroid, initializationSettingsIOS);
-  await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-      onSelectNotification: (String payload) async {
-        if (payload != null) {
-          debugPrint('notification payload: ' + payload);
-        }
-      });
   runApp(AlarMe());
+  await AndroidAlarmManager.initialize();
+
+  print("AndroidAlarmManager initialized!");
 }
 
 class AlarMe extends StatelessWidget {

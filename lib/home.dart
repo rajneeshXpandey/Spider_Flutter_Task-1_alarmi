@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'time.dart' as time;
 import 'alarm_main.dart' as alarm;
@@ -34,7 +33,8 @@ class TabsState extends State<Tabs> with SingleTickerProviderStateMixin{
         appBar: new AppBar(
             elevation: 100,
             shadowColor: Colors.cyanAccent,
-            title: Text("AlarMe", style: GoogleFonts.lobsterTwo(
+            title: Text("AlarMe", style: TextStyle(
+              fontFamily: 'lobsterTwo',
             fontSize: 40,
             color: Colors.cyanAccent,
             fontWeight: FontWeight.w100,
