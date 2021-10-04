@@ -1,6 +1,10 @@
 # alarmi
 
 A new  Alarm -Flutter application.
+# How The App will look 
+
+<img src = "gitimg/preview1.png" width= "200" > <span>  <img src = "gitimg/preview2.png" width= "200" > <span>  <img src = "gitimg/preview3.png" width= "225" >
+ 
 
 ## Getting Started
 
